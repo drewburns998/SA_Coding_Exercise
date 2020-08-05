@@ -37,7 +37,7 @@ const boardPlane = (emptySeats = [], passengers = []) => {
     return availableSeats
 }
 
-const simulateBoardingScenario = (simulationCount = 1, seatCount = 0) =>  {
+const simulateBoardingScenario = (simulationCount = 1) =>  {
     let simulationsRun = 0;
     let simulationResults = [];
 
@@ -49,8 +49,8 @@ const simulateBoardingScenario = (simulationCount = 1, seatCount = 0) =>  {
         simulationResults.push(remainingSeat);
     }
 
-    const lastSeatAvailableCount = simulationResults.flat().filter(seat => seat.seatNumber == 1).length
-    const lastSeatUnavailableCount = simulationResults.flat().filter(seat => seat.seatNumber != 1).length
+    const lastSeatAvailableCount = simulationResults.flat().filter(seat => seat.seatNumber == 100).length
+    const lastSeatUnavailableCount = simulationResults.flat().filter(seat => seat.seatNumber != 100).length
     const lastSeatAvailablePercentage = 100 * lastSeatAvailableCount / (lastSeatAvailableCount + lastSeatUnavailableCount) 
 
     return {

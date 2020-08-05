@@ -101,7 +101,7 @@ describe('plane boarding simulator', () => {
             assert.deepEqual(lastSeatCheckedCount, simulationCount);           
         })
 
-        it('the number of simulations run should equal the simulation count', () => {
+        it('number of simulations run should equal the simulation count', () => {
             const simulationCount = 50;
             const seatCount = 100;
             
@@ -110,13 +110,25 @@ describe('plane boarding simulator', () => {
             assert.deepEqual(simulationsRun, simulationCount);           
         })
 
-        it('the returns a valid percentage between 0 and 100 inclusive', () => {
+        it('returns a valid percentage between 0 and 100 inclusive', () => {
             const simulationCount = 50;
             const seatCount = 100;
             
             const { lastSeatAvailablePercentage } = simulateBoardingScenario(simulationCount, seatCount);
             const isValidPercent = lastSeatAvailablePercentage >= 0 && lastSeatAvailablePercentage <= 100;
             assert.isTrue(isValidPercent);
+        })
+
+        it('produces simulation results', () => {
+            const simulationCount = 1000;
+            const seatCount = 100;
+            
+            const { lastSeatAvailablePercentage } = simulateBoardingScenario(simulationCount, seatCount);
+            
+            console.log("Total Simulations: ", simulationCount)
+            console.log("Seats per simulation: ", seatCount)
+            console.log("Passengers per simulation: ", seatCount)
+            console.log("% of simulations that the final person gets the correct set: ", lastSeatAvailablePercentage, "%")
         })
     })
 })

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha *.test.js",
-    "test:watch": "mocha -w *.test.js"
+    "test:watch": "mocha -w *.test.js",
+    "test:simulation": "mocha -w *.test.js --grep=\"produces simulation results\""
   },
   "author": "Drew Burns",
   "license": "MIT",
